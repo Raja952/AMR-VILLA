@@ -1,0 +1,25 @@
+<header class="header" [class.solid]="!isHome">
+  <a class="logo" routerLink="/"><img src="assets/images/logo.png" alt="Book Villa Stay"></a>
+
+  <button class="burger" (click)="menuOpen = !menuOpen" aria-label="Toggle menu">☰</button>
+
+  <nav class="nav" [class.open]="menuOpen">
+    <ng-container *ngFor="let l of navLinks">
+      <div *ngIf="l.dropdown; else plain" class="dd"
+           (mouseenter)="villasOpen = true" (mouseleave)="villasOpen = false">
+        <a [routerLink]="l.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: l.exact }">
+          {{ l.label }} <span class="caret">⌄</span>
+        </a>
+        <ul *ngIf="villasOpen">
+          <li><a routerLink="/villas">Villa One</a></li>
+          <li><a routerLink="/villas">Villa Two</a></li>
+        </ul>
+      </div>
+      <ng-template #plain>
+        <a [routerLink]="l.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: l.exact }">{{ l.label }}</a>
+      </ng-template>
+    </ng-container>
+  </nav>
+
+  <a class="btn-orange book-now" routerLink="/contact">Book Now</a>
+</header>

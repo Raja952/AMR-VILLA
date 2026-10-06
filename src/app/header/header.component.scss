@@ -1,0 +1,49 @@
+.header {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+  min-height: 64px; display: flex; align-items: center;
+  padding-left: clamp(16px, 8.5vw, 120px);
+}
+.header.solid { position: relative; background: #1b1b1b; }
+
+.logo { order: 0; img { height: 44px; width: 44px; border-radius: 50%; } }
+
+.nav {
+  order: 1; display: flex; gap: clamp(14px, 2vw, 28px); margin-left: auto; margin-right: 28px;
+  a {
+    color: #fff; font: 700 12px 'Open Sans', sans-serif; text-transform: uppercase;
+    text-decoration: none; letter-spacing: .4px; padding: 8px 0; border-top: 2px solid transparent;
+    &.active, &:hover { border-top-color: #fff; }
+  }
+}
+.dd { position: relative; }
+.dd ul {
+  position: absolute; top: 100%; left: 0; list-style: none; margin: 0; padding: 6px 0;
+  background: #fff; min-width: 150px; box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  a { display: block; color: #222; padding: 8px 14px; border: 0; }
+}
+
+.book-now {
+  order: 2; align-self: flex-start; width: clamp(140px, 15vw, 202px);
+  text-align: center; padding: 20px 0; font-size: 13px;
+}
+.burger { display: none; order: 3; background: none; border: 0; color: #fff; font-size: 28px; line-height: 1; padding: 8px 14px; cursor: pointer; }
+
+/* ---------- tablet & mobile ---------- */
+@media (max-width: 991px) {
+  .header { padding-left: 16px; }
+  .burger { display: block; }
+  .book-now { margin-left: auto; align-self: center; width: auto; padding: 10px 16px; font-size: 12px; }
+
+  .nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; margin: 0;
+    flex-direction: column; gap: 0; background: rgba(20, 20, 20, .95); padding: 8px 16px 16px;
+    &.open { display: flex; }
+    a { display: block; font-size: 14px; padding: 14px 4px; border-top: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    a.active { color: var(--bvs-orange); }
+  }
+  .dd ul { position: static; background: transparent; box-shadow: none; padding: 0 0 0 14px; a { color: #ddd; font-size: 13px; } }
+}
+@media (max-width: 380px) {
+  .book-now { display: none; }
+  .burger { margin-left: auto; }
+}

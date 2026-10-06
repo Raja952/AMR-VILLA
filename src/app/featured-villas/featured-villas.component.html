@@ -1,0 +1,15 @@
+<section id="villas" class="featured container">
+  <div class="head">
+    <div>
+      <span class="eyebrow">Featured Villa</span>
+      <h2>We believe in giving you the best comfort ever</h2>
+    </div>
+    <p>Choose from our exclusive collection of premium villas, each offering a unique stay experience and thoughtfully designed spaces.</p>
+  </div>
+
+  <div class="grid">
+    <a class="card" *ngFor="let v of villas" href="#">
+      <img [src]="v.image" [alt]="v.name">
+    </a>
+  </div>
+</section>

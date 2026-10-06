@@ -1,0 +1,32 @@
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Find Your Perfect Villa Stay</h1>
+    <p class="lead">
+      Discover handpicked premium villas designed for comfort, privacy, and unforgettable
+      experiences. Whether it's a peaceful escape, a family vacation, or a celebration with
+      loved ones, Book Villa Stay helps you find the perfect place to stay.
+    </p>
+    <p class="tag">Book. Relax. Experience.</p>
+    <a class="btn-orange" routerLink="/contact">Book Your Stay</a>
+  </div>
+</section>
+
+<form id="contact" class="enquiry" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="field">
+    <label for="f-name">Name <span>*</span></label>
+    <input id="f-name" type="text" formControlName="name" autocomplete="name" [class.invalid]="submitted && f['name'].invalid">
+  </div>
+  <div class="field">
+    <label for="f-email">Email <span>*</span></label>
+    <input id="f-email" type="email" formControlName="email" autocomplete="email" [class.invalid]="submitted && f['email'].invalid">
+  </div>
+  <div class="field">
+    <label for="f-phone">Phone no <span>*</span></label>
+    <input id="f-phone" type="tel" formControlName="phone" autocomplete="tel" [class.invalid]="submitted && f['phone'].invalid">
+  </div>
+  <div class="field">
+    <label for="f-date">Choose Date <span>*</span></label>
+    <input id="f-date" type="date" formControlName="date" [class.invalid]="submitted && f['date'].invalid">
+  </div>
+  <button type="submit" class="btn-orange submit">Submit</button>
+</form>
