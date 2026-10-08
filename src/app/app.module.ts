@@ -11,11 +11,12 @@ import { FeaturedVillasComponent } from './featured-villas/featured-villas.compo
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent, HeaderComponent, HeroComponent, AboutComponent, FeaturedVillasComponent,
-    HomeComponent, ContactComponent, BlogComponent
+    HomeComponent, ContactComponent, BlogComponent, FooterComponent
   ],
   imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
   bootstrap: [AppComponent]

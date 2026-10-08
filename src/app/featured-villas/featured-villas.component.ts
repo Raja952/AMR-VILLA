@@ -9,7 +9,7 @@ interface Villa { name: string; image: string; }
 })
 export class FeaturedVillasComponent {
   villas: Villa[] = [
-    { name: 'Villa One', image: 'assets/images/villa-1.jpg' },
-    { name: 'Villa Two', image: 'assets/images/villa-2.jpg' }
+    { name: 'Villa One', image: 'assets/villa-1.jpg' },
+    { name: 'Villa Two', image: 'assets/villa-2.jpg' }
   ];
 }
