@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -11,6 +11,10 @@ export class HeaderComponent {
   villasOpen = false;
   menuOpen = false;
   isHome = true;
+  scrolled = false;
+
+  @HostListener('window:scroll')
+  onScroll() { this.scrolled = window.scrollY > 40; }
 
   navLinks = [
     { label: 'Home', link: '/', exact: true, dropdown: false },

@@ -1,21 +1,97 @@
 :root {
-  --bvs-orange: #ff7a1a;
-  --bvs-dark: #1b1b1b;
-  --bvs-text: #555;
-  --bvs-navy: #1f3a5f;
+  --brand: #f97316;
+  --brand-dark: #ea580c;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --bg-soft: #fff7ed;
+  --radius: 14px;
+  --shadow: 0 20px 45px -15px rgba(15, 23, 42, .25);
 }
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-html, body { margin: 0; padding: 0; overflow-x: hidden; }
-body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.6; color: var(--bvs-text); background: #fff; }
-h1, h2, h3, h4 { font-family: 'Raleway', sans-serif; margin: 0; color: var(--bvs-dark); }
-img { max-width: 100%; display: block; }
-a { color: inherit; }
-.btn-orange {
-  display: inline-block; background: var(--bvs-orange); color: #1b1b1b; border: 0;
-  font: 600 13px 'Open Sans', sans-serif; padding: 12px 22px; cursor: pointer; text-decoration: none;
-  transition: filter .2s;
-  &:hover { filter: brightness(.92); }
-  &:focus-visible { outline: 2px solid #1b1b1b; outline-offset: 2px; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--brand);
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+  font: 500 15px 'Poppins', sans-serif;
+  transition: .3s;
+
+  &--primary {
+    background: var(--brand);
+    color: #fff;
+    box-shadow: 0 10px 25px -8px var(--brand);
+
+    &:hover {
+      background: var(--brand-dark);
+      transform: translateY(-3px);
+    }
+  }
+
+  &--ghost {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+
+    &:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+  }
+}

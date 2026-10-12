@@ -1,15 +1,32 @@
-<section id="villas" class="featured container">
-  <div class="head">
-    <div>
-      <span class="eyebrow">Featured Villa</span>
-      <h2>We believe in giving you the best comfort ever</h2>
+<section class="featured section" id="featured">
+  <div class="container">
+    <div class="featured__head">
+      <div>
+        <span class="eyebrow">Featured Villas</span>
+        <h2 class="title">We believe in giving you<br>the best comfort ever</h2>
+      </div>
+      <p>
+        Choose from our exclusive collection of premium villas, each offering a unique stay
+        experience and thoughtfully designed spaces.
+      </p>
     </div>
-    <p>Choose from our exclusive collection of premium villas, each offering a unique stay experience and thoughtfully designed spaces.</p>
-  </div>
 
-  <div class="grid">
-    <a class="card" *ngFor="let v of villas" href="#">
-      <img [src]="v.image" [alt]="v.name">
-    </a>
+    <div class="featured__grid">
+      <article class="card" *ngFor="let v of villas">
+        <div class="card__img">
+          <img [src]="v.img" [alt]="v.name">
+          <span class="card__tag">{{ v.tag }}</span>
+        </div>
+        <div class="card__body">
+          <small>📍 {{ v.location }}</small>
+          <h3>{{ v.name }}</h3>
+          <div class="card__meta"><span>👥 {{ v.guests }} Guests</span><span>🛏 {{ v.beds }} Bedrooms</span></div>
+          <div class="card__foot">
+            <p><strong>₹{{ v.price | number }}</strong> / night</p>
+            <a [routerLink]="['/villas']" class="btn btn--primary">View</a>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>

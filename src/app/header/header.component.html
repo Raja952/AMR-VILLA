@@ -1,4 +1,4 @@
-<header class="header" [class.solid]="!isHome">
+<!--<header class="header" [class.solid]="!isHome">
   <a class="logo" routerLink="/"><img src="assets/images/logo.png" alt="Book Villa Stay"></a>
 
   <button class="burger" (click)="menuOpen = !menuOpen" aria-label="Toggle menu">☰</button>
@@ -22,4 +22,34 @@
   </nav>
 
   <a class="btn-orange book-now" routerLink="/contact">Book Now</a>
+</header>-->
+
+<header class="nav" [class.scrolled]="scrolled" [class.open]="menuOpen">
+  <div class="container nav__inner">
+    <a routerLink="/" class="nav__logo">
+      <img src="assets/images/logo.png" alt="Book Villa Stay">
+    </a>
+
+    <button class="nav__toggle" (click)="menuOpen = !menuOpen" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav__menu">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+
+      <div class="dropdown">
+        <a href="javascript:void(0)">Our Villas <small>▾</small></a>
+        <ul class="dropdown__menu">
+          <li><a routerLink="/villas/pool">Pool Villas</a></li>
+          <li><a routerLink="/villas/family">Family Villas</a></li>
+          <li><a routerLink="/villas/luxury">Luxury Villas</a></li>
+        </ul>
+      </div>
+
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/contact">Contact Us</a>
+      <a routerLink="/blog">Blog</a>
+      <a routerLink="/book" class="btn btn--primary nav__cta">Book Now</a>
+    </nav>
+  </div>
 </header>

@@ -12,18 +12,15 @@ export class HeroComponent {
   form = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.pattern(/^[0-9+\-\s]{8,15}$/)]],
+    phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
     date: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
-  get f() { return this.form.controls; }
-
-  onSubmit(): void {
+  submit() {
     this.submitted = true;
-    if (this.form.invalid) { return; }
-    // TODO: call your enquiry/booking API here
-    console.log('Enquiry', this.form.value);
+    if (this.form.invalid) return;
+    console.log(this.form.value); // call your service here
   }
 }
