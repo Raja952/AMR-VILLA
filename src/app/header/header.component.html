@@ -24,10 +24,10 @@
   <a class="btn-orange book-now" routerLink="/contact">Book Now</a>
 </header>-->
 
-<header class="nav" [class.scrolled]="scrolled" [class.open]="menuOpen">
+<header class="nav" [class.scrolled]="scrolled || !isHome" [class.open]="menuOpen">
   <div class="container nav__inner">
     <a routerLink="/" class="nav__logo">
-      <img src="assets/images/logo.png" alt="Book Villa Stay">
+      <img src="assets/images/amr-living-spaces.svg" alt="AMR Living Spaces">
     </a>
 
     <button class="nav__toggle" (click)="menuOpen = !menuOpen" aria-label="Menu">
@@ -48,7 +48,6 @@
 
       <a routerLink="/about">About Us</a>
       <a routerLink="/contact">Contact Us</a>
-      <a routerLink="/blog">Blog</a>
       <a routerLink="/book" class="btn btn--primary nav__cta">Book Now</a>
     </nav>
   </div>

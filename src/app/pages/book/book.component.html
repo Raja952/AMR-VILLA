@@ -1,0 +1,108 @@
+<main class="booking-page">
+  <section class="booking-hero">
+    <div class="container booking-hero__inner">
+      <span class="booking-eyebrow"><span>✦</span> Your getaway, your way</span>
+      <h1>Make your next stay<br><em>something special.</em></h1>
+      <p>Choose your villa and dates. We’ll help make the rest feel effortless.</p>
+    </div>
+  </section>
+
+  <section class="container booking-layout" aria-label="Villa booking request">
+    <div class="booking-form-card">
+      <div class="booking-form-card__heading">
+        <span class="booking-step">01 <span>—</span> YOUR STAY</span>
+        <h2>Let’s find your villa.</h2>
+        <p>Share your plans and our team will help confirm availability and details.</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="booking-section-title"><span class="booking-section-title__icon">⌂</span> Stay details</div>
+        <div class="booking-fields">
+          <div class="booking-field booking-field--full">
+            <label for="booking-villa">Choose a villa <span>*</span></label>
+            <select id="booking-villa" formControlName="villa" [class.invalid]="submitted && form.controls.villa.invalid">
+              <option value="" disabled>Select a villa</option>
+              <option value="Azure Pool Villa — Lonavala">Azure Pool Villa — Lonavala</option>
+              <option value="Palm Grove Retreat — Alibaug">Palm Grove Retreat — Alibaug</option>
+              <option value="Sunset Heights — Karjat">Sunset Heights — Karjat</option>
+              <option value="Help me choose">Help me choose</option>
+            </select>
+            <small class="booking-error" *ngIf="submitted && form.controls.villa.invalid">Please choose a villa or select “Help me choose”.</small>
+          </div>
+
+          <div class="booking-field">
+            <label for="booking-checkin">Check-in <span>*</span></label>
+            <input id="booking-checkin" type="date" formControlName="checkIn" [attr.min]="today" [class.invalid]="submitted && form.controls.checkIn.invalid">
+            <small class="booking-error" *ngIf="submitted && form.controls.checkIn.invalid">Select your check-in date.</small>
+          </div>
+
+          <div class="booking-field">
+            <label for="booking-checkout">Check-out <span>*</span></label>
+            <input id="booking-checkout" type="date" formControlName="checkOut" [attr.min]="form.controls.checkIn.value || today" [class.invalid]="submitted && (form.controls.checkOut.invalid || form.hasError('checkoutBeforeCheckin'))">
+            <small class="booking-error" *ngIf="submitted && form.controls.checkOut.invalid">Select your check-out date.</small>
+            <small class="booking-error" *ngIf="submitted && form.hasError('checkoutBeforeCheckin')">Check-out must be after check-in.</small>
+          </div>
+
+          <div class="booking-field booking-field--full">
+            <label for="booking-guests">Guests</label>
+            <select id="booking-guests" formControlName="guests">
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3-4">3–4 guests</option>
+              <option value="5-8">5–8 guests</option>
+              <option value="9+">9+ guests</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-divider"></div>
+        <div class="booking-section-title"><span class="booking-section-title__icon">♙</span> Your details</div>
+        <div class="booking-fields">
+          <div class="booking-field">
+            <label for="booking-name">Full name <span>*</span></label>
+            <input id="booking-name" type="text" formControlName="name" placeholder="Your name" autocomplete="name" [class.invalid]="submitted && form.controls.name.invalid">
+            <small class="booking-error" *ngIf="submitted && form.controls.name.invalid">Enter your name.</small>
+          </div>
+
+          <div class="booking-field">
+            <label for="booking-email">Email address <span>*</span></label>
+            <input id="booking-email" type="email" formControlName="email" placeholder="you@example.com" autocomplete="email" [class.invalid]="submitted && form.controls.email.invalid">
+            <small class="booking-error" *ngIf="submitted && form.controls.email.invalid">Enter a valid email.</small>
+          </div>
+
+          <div class="booking-field booking-field--full">
+            <label for="booking-phone">Phone number <span>*</span></label>
+            <input id="booking-phone" type="tel" formControlName="phone" placeholder="Include country code if needed" autocomplete="tel" [class.invalid]="submitted && form.controls.phone.invalid">
+            <small class="booking-error" *ngIf="submitted && form.controls.phone.invalid">Enter a valid phone number.</small>
+          </div>
+
+          <div class="booking-field booking-field--full">
+            <label for="booking-requests">Anything else we should know? <span class="optional">Optional</span></label>
+            <textarea id="booking-requests" rows="3" formControlName="requests" placeholder="Special occasion, preferences or questions…"></textarea>
+          </div>
+        </div>
+
+        <button class="booking-submit" type="submit">Continue with booking request <span aria-hidden="true">→</span></button>
+        <p class="booking-form-note">This is a booking request, not a confirmed reservation. Your email app will open with the details ready to send.</p>
+      </form>
+    </div>
+
+    <aside class="booking-aside">
+      <div class="booking-photo">
+        <img src="assets/villa-2.jpg" alt="Peaceful villa surrounded by lush greenery">
+        <span class="booking-photo__badge"><span>✦</span> Handpicked stays</span>
+      </div>
+      <div class="booking-aside__body">
+        <span class="booking-eyebrow booking-eyebrow--dark">A little more room to unwind</span>
+        <h2>Stay your way.</h2>
+        <p>Private spaces, considered comforts and memorable moments—choose the escape that feels right for you.</p>
+        <ul>
+          <li><span>✓</span> Carefully selected villa stays</li>
+          <li><span>✓</span> Space for family and friends</li>
+          <li><span>✓</span> Personal help planning your trip</li>
+        </ul>
+        <a routerLink="/contact" class="booking-help"><span>Need a hand?</span> Talk to our team <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+  </section>
+</main>

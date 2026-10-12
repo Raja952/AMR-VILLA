@@ -14,7 +14,10 @@ export class HeaderComponent {
   scrolled = false;
 
   @HostListener('window:scroll')
-  onScroll() { this.scrolled = window.scrollY > 40; }
+  onScroll() {
+    const scrollY = window.scrollY;
+    this.scrolled = this.scrolled ? scrollY > 24 : scrollY > 48;
+  }
 
   navLinks = [
     { label: 'Home', link: '/', exact: true, dropdown: false },
@@ -25,6 +28,7 @@ export class HeaderComponent {
   ];
 
   constructor(private router: Router) {
+    this.isHome = this.router.url.split(/[?#]/)[0] === '/';
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe(e => {

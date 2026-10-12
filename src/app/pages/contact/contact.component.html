@@ -1,0 +1,112 @@
+<main class="contact-page">
+  <section class="contact-hero" aria-labelledby="contact-title">
+    <div class="container contact-hero__inner">
+      <div class="contact-hero__copy">
+        <span class="contact-eyebrow"><span></span> We’re here to help</span>
+        <h1 id="contact-title">Let’s plan a stay<br><em>worth remembering.</em></h1>
+        <p>Share a little about your trip and we’ll help you find the right villa for your getaway.</p>
+      </div>
+      <div class="contact-hero__note" aria-hidden="true">
+        <span class="contact-hero__note-icon">✦</span>
+        <span>Good stays<br>start with a hello.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container contact-layout" aria-label="Contact and villa enquiry">
+    <aside class="contact-aside">
+      <div class="contact-photo">
+        <img src="assets/villa-1.jpg" alt="A relaxing villa stay surrounded by greenery">
+        <div class="contact-photo__caption">
+          <span>Make room for</span>
+          <strong>something special.</strong>
+        </div>
+      </div>
+
+      <div class="contact-aside__content">
+        <span class="contact-eyebrow">Personalised help</span>
+        <h2>Tell us what your<br>perfect stay looks like.</h2>
+        <p>From choosing a destination to finding the right space for your group, our team can help you explore your options.</p>
+
+        <a class="contact-email" href="mailto:info@bookvillastay.com">
+          <span class="contact-email__icon" aria-hidden="true">✉</span>
+          <span><small>Email our team</small><strong>info&#64;bookvillastay.com</strong></span>
+          <span class="contact-email__arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="contact-promise"><span aria-hidden="true">✓</span> Thoughtful stays, personal service</div>
+      </div>
+    </aside>
+
+    <div class="contact-form-card">
+      <div class="contact-form-card__heading">
+        <span class="contact-eyebrow">Villa enquiry</span>
+        <h2>How can we help?</h2>
+        <p>Fill in the details below and your email app will open with your enquiry ready to send.</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="contact-fields">
+          <div class="contact-field">
+            <label for="contact-name">Full name <span>*</span></label>
+            <input id="contact-name" type="text" formControlName="name" placeholder="Your name" autocomplete="name" [class.invalid]="submitted && form.controls.name.invalid" [attr.aria-invalid]="submitted && form.controls.name.invalid">
+            <small class="field-error" *ngIf="submitted && form.controls.name.invalid">Please enter your name.</small>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-email">Email address <span>*</span></label>
+            <input id="contact-email" type="email" formControlName="email" placeholder="you@example.com" autocomplete="email" [class.invalid]="submitted && form.controls.email.invalid" [attr.aria-invalid]="submitted && form.controls.email.invalid">
+            <small class="field-error" *ngIf="submitted && form.controls.email.invalid">Enter a valid email address.</small>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-phone">Phone number <span>*</span></label>
+            <input id="contact-phone" type="tel" formControlName="phone" placeholder="Include country code if needed" autocomplete="tel" [class.invalid]="submitted && form.controls.phone.invalid" [attr.aria-invalid]="submitted && form.controls.phone.invalid">
+            <small class="field-error" *ngIf="submitted && form.controls.phone.invalid">Enter a valid phone number.</small>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-destination">Preferred destination</label>
+            <select id="contact-destination" formControlName="destination">
+              <option value="">I’m open to suggestions</option>
+              <option value="Lonavala">Lonavala</option>
+              <option value="Alibaug">Alibaug</option>
+              <option value="Karjat">Karjat</option>
+              <option value="Other">Somewhere else</option>
+            </select>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-checkin">Check-in</label>
+            <input id="contact-checkin" type="date" formControlName="checkIn" [attr.min]="today">
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-checkout">Check-out</label>
+            <input id="contact-checkout" type="date" formControlName="checkOut" [attr.min]="form.controls.checkIn.value || today">
+          </div>
+
+          <div class="contact-field contact-field--full">
+            <label for="contact-guests">Number of guests</label>
+            <select id="contact-guests" formControlName="guests">
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3-4">3–4 guests</option>
+              <option value="5-8">5–8 guests</option>
+              <option value="9+">9+ guests</option>
+            </select>
+          </div>
+
+          <div class="contact-field contact-field--full">
+            <label for="contact-message">Tell us about your trip <span>*</span></label>
+            <textarea id="contact-message" rows="4" formControlName="message" placeholder="Dates, occasion, preferences or any questions…" [class.invalid]="submitted && form.controls.message.invalid" [attr.aria-invalid]="submitted && form.controls.message.invalid"></textarea>
+            <small class="field-error" *ngIf="submitted && form.controls.message.invalid">Please add a short message so we can help.</small>
+          </div>
+        </div>
+
+        <button class="contact-submit" type="submit">Prepare my enquiry <span aria-hidden="true">→</span></button>
+        <p class="contact-privacy">Your details are used only to help with your villa enquiry.</p>
+      </form>
+    </div>
+  </section>
+</main>

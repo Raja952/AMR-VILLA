@@ -1,18 +1,52 @@
 <footer class="footer">
-  <div class="container footer__grid">
-    <div>
-      <img src="assets/images/logo.png" alt="Book Villa Stay" class="footer__logo">
-      <p>Premium villas for families, couples and groups. Book. Relax. Experience.</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <a routerLink="/">Home</a><a routerLink="/about">About Us</a>
-      <a routerLink="/blog">Blog</a><a routerLink="/contact">Contact</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <p>📞 +91 00000 00000</p><p>✉ info&#64;bookvillastay.com</p>
+  <div class="footer__cta-wrap">
+    <div class="container footer__cta">
+      <div>
+        <span class="footer__eyebrow">A stay worth remembering</span>
+        <h2>Your next escape starts here.</h2>
+        <p>Find the space, comfort and privacy to make every moment your own.</p>
+      </div>
+      <a routerLink="/villas" class="footer__cta-button">Explore our villas <span aria-hidden="true">→</span></a>
     </div>
   </div>
-  <div class="footer__bottom">© {{ year }} Book Villa Stay. All rights reserved.</div>
+
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a routerLink="/" class="footer__brand-link" aria-label="Book Villa Stay home">
+        <img src="assets/images/logo.png" alt="Book Villa Stay" class="footer__logo">
+        <span>Book Villa Stay</span>
+      </a>
+      <p>Thoughtfully chosen villas for slower mornings, shared moments and stays that feel like your own.</p>
+      <span class="footer__promise"><span aria-hidden="true">✦</span> Find your place in paradise</span>
+    </div>
+
+    <nav class="footer__links" aria-label="Explore">
+      <h3>Explore</h3>
+      <a routerLink="/">Home</a>
+      <a routerLink="/villas">Our villas</a>
+      <a routerLink="/about">About us</a>
+    </nav>
+
+    <nav class="footer__links" aria-label="Guest support">
+      <h3>Guest support</h3>
+      <a routerLink="/contact">Contact us</a>
+      <a routerLink="/book">Make a booking request</a>
+      <p class="footer__support-note">Need help planning your stay? Our team is happy to help.</p>
+    </nav>
+
+    <div class="footer__contact">
+      <h3>Get in touch</h3>
+      <p>Questions or special requests? We would love to hear from you.</p>
+      <a class="footer__email" href="mailto:info@bookvillastay.com">
+        <span aria-hidden="true">✉</span> info&#64;bookvillastay.com
+      </a>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span>© {{ year }} Book Villa Stay. All rights reserved.</span>
+      <span>Made for memorable stays.</span>
+    </div>
+  </div>
 </footer>

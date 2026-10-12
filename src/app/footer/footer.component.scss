@@ -1,46 +1,199 @@
 .footer {
-  background: var(--ink);
-  color: #cbd5e1;
-  position: relative; /* NOT fixed/absolute */
-  &__grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 50px;
-    padding: 70px 0 40px;
-  }
+  --footer-muted: #a7b2c1;
+  background: #101b2b;
+  color: var(--footer-muted);
+  position: relative;
 
-  &__logo {
-    height: 50px;
-    margin-bottom: 16px;
-  }
+  &__cta-wrap { padding-top: 64px; }
 
-  h4 {
-    color: #fff;
-    margin-bottom: 16px;
-    font-size: 17px;
-  }
+  &__cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 38px 46px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 18px;
+    background: linear-gradient(115deg, #1d2b3d, #182638 58%, #263344);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, .18);
 
-  a {
-    display: block;
-    margin-bottom: 8px;
-    transition: .3s;
-
-    &:hover {
-      color: var(--brand);
-      padding-left: 6px;
+    &::after {
+      position: absolute;
+      top: -150px;
+      right: 22%;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 50%;
+      box-shadow: 0 0 0 24px rgba(255, 255, 255, .025), 0 0 0 48px rgba(255, 255, 255, .02);
+      content: '';
+      pointer-events: none;
     }
   }
 
-  &__bottom {
-    border-top: 1px solid rgba(255,255,255,.1);
-    text-align: center;
-    padding: 20px;
+  &__eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffb178;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  &__cta h2 {
+    color: #fff;
+    font: 600 clamp(24px, 3vw, 34px)/1.2 'Playfair Display', serif;
+  }
+
+  &__cta p { margin-top: 9px; font-size: 13px; }
+
+  &__cta-button {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 21px;
+    border-radius: 50px;
+    background: var(--brand);
+    color: #fff;
     font-size: 13px;
+    font-weight: 600;
+    transition: background .2s ease, transform .2s ease;
+
+    span { font-size: 19px; line-height: 1; }
+
+    &:hover {
+      transform: translateY(-2px);
+      background: var(--brand-dark);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.55fr .75fr .9fr 1.2fr;
+    gap: 48px;
+    padding: 62px 0 54px;
+  }
+
+  &__logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    color: #fff;
+    font: 600 17px 'Playfair Display', serif;
+  }
+
+  h3 {
+    color: #fff;
+    margin: 8px 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  &__brand > p,
+  &__contact > p {
+    max-width: 300px;
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  &__promise {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: #fff;
+    font-size: 11px;
+
+    span { color: #ffb178; }
+  }
+
+  &__links a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 11px;
+    color: var(--footer-muted);
+    font-size: 12px;
+    transition: color .2s ease, transform .2s ease;
+
+    &:hover {
+      transform: translateX(4px);
+      color: #fff;
+    }
+  }
+
+  &__support-note {
+    max-width: 220px;
+    margin-top: 17px;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  &__email {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 16px;
+    color: #fff;
+    font-size: 12px;
+    transition: color .2s ease;
+
+    span { color: #ffb178; font-size: 17px; }
+    &:hover { color: #ffb178; }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    font-size: 10px;
+  }
+
+  &__bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
   }
 }
 
 @media (max-width: 800px) {
   .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 32px;
+  }
+
+  .footer__cta-wrap { padding-top: 44px; }
+}
+
+@media (max-width: 560px) {
+  .footer__cta {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 30px 24px;
+  }
+
+  .footer__grid {
     grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 44px 0 38px;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: column;
+    gap: 4px;
   }
 }

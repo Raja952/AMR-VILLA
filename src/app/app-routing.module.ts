@@ -6,13 +6,15 @@ import { AboutComponent } from './about/about.component';
 import { FeaturedVillasComponent } from './featured-villas/featured-villas.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { BookComponent } from './pages/book/book.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, title: 'Book Villa Stay' },
-  { path: 'villas', component: FeaturedVillasComponent, title: 'Our Villas | Book Villa Stay' },
-  { path: 'about', component: AboutComponent, title: 'About Us | Book Villa Stay' },
-  { path: 'contact', component: ContactComponent, title: 'Contact Us | Book Villa Stay' },
-  { path: 'blog', component: BlogComponent, title: 'Blog | Book Villa Stay' },
+  { path: '', component: HomeComponent, title: 'AMR Villas | Living Spaces' },
+  { path: 'villas', component: FeaturedVillasComponent, title: 'Our Villas | AMR Villas' },
+  { path: 'about', component: AboutComponent, title: 'About Us | AMR Villas' },
+  { path: 'contact', component: ContactComponent, title: 'Contact Us | AMR Villas' },
+  { path: 'book', component: BookComponent, title: 'Book a Villa | AMR Villas' },
+  { path: 'blog', component: BlogComponent, title: 'Blog | AMR Villas' },
   { path: '**', redirectTo: '' }
 ];
 

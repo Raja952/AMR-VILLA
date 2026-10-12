@@ -13,12 +13,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { FooterComponent } from './footer/footer.component';
+import { BookComponent } from './pages/book/book.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, HeaderComponent, HeroComponent, AboutComponent, FeaturedVillasComponent,
-    HomeComponent, ContactComponent, BlogComponent, FooterComponent
+    HomeComponent, ContactComponent, BlogComponent, FooterComponent, BookComponent
   ],
   imports: [BrowserModule, HttpClientModule,ReactiveFormsModule, AppRoutingModule],
   bootstrap: [AppComponent]

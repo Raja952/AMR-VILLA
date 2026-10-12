@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-labelledby="title">
+  <title id="title">AMR Living Spaces</title>
+  <text x="13" y="111" fill="#192f78" font-family="Arial, Helvetica, sans-serif" font-size="128" font-style="italic" font-weight="900" letter-spacing="-11">amr</text>
+  <path d="M48 137c51-18 103-42 137-48 31-5 57 11 91 31-33-13-58-18-87-11-37 8-84 23-141 28Z" fill="#e8b52d"/>
+  <path d="m153 75 20-22 21 22v29h-41Z" fill="#fff" stroke="#192f78" stroke-width="4" stroke-linejoin="round"/>
+  <path d="m148 77 25-27 26 27" fill="none" stroke="#192f78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M168 104V86h11v18M184 84h5v6h-5Z" fill="#192f78"/>
+  <text x="74" y="164" fill="#192f78" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="4">LIVING SPACES</text>
+  <circle cx="300" cy="31" r="10" fill="none" stroke="#192f78" stroke-width="2"/>
+  <text x="296.5" y="36" fill="#192f78" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">R</text>
+</svg>
