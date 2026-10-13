@@ -106,3 +106,31 @@
     height: 420px;
   }
 }
+
+@media (max-width: 560px) {
+  .about { padding-top: 90px; }
+
+  .about__grid { gap: 34px; }
+
+  .about__images { height: 300px; }
+
+  .about__exp {
+    top: 14px;
+    right: 0;
+    padding: 12px 14px;
+
+    strong { font-size: 30px; }
+    span { font-size: 11px; }
+  }
+
+  .about__list { grid-template-columns: 1fr; }
+
+  .about__stats {
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    strong { font-size: 24px; }
+    span { font-size: 11px; }
+  }
+}
