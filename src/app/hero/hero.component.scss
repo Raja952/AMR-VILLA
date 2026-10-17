@@ -7,12 +7,24 @@
   text-align: center;
   color: #fff;
   padding: 140px 0 190px;
-  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.45)), url('/assets/villa.jpg') center/cover no-repeat;
+  background: #0f172a; // fallback color while the image loads
 
+  // Background image layer (zoom in / zoom out)
   &__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(15,23,42,.75) 0%, rgba(15,23,42,.45) 50%, rgba(15,23,42,.85) 100%);
+    overflow: hidden; // clips the zoom without clipping the enquiry form
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .45)),
+        url('/assets/villa.jpg') center/cover no-repeat;
+      animation: zoomInOut 14s ease-in-out infinite alternate;
+      will-change: transform;
+    }
   }
 
   &__content {
@@ -44,8 +56,8 @@
     border-radius: 50px;
     font-size: 13px;
     letter-spacing: .08em;
-    background: rgba(255,255,255,.14);
-    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .3);
     backdrop-filter: blur(6px);
   }
 
@@ -106,7 +118,7 @@
       outline: none;
       border-color: var(--brand);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(249,115,22,.12);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, .12);
     }
 
     &.invalid {
@@ -118,6 +130,12 @@
     height: 48px;
     padding: 0 30px;
   }
+}
+
+// Animations
+@keyframes zoomInOut {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
 }
 
 @keyframes rise {
@@ -132,6 +150,14 @@
   }
 }
 
+// Respect users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .hero__overlay::before {
+    animation: none;
+  }
+}
+
+// Tablet
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -156,6 +182,7 @@
   }
 }
 
+// Mobile
 @media (max-width: 560px) {
   .hero {
     min-height: auto;
@@ -186,5 +213,7 @@
     padding: 22px 18px;
   }
 
-  .enquiry .btn { width: 100%; }
+  .enquiry .btn {
+    width: 100%;
+  }
 }
